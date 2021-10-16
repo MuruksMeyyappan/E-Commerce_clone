@@ -1,0 +1,25 @@
+{
+  "sliderItems": [
+    {
+      "id": 1,
+      "img": "https://static8.depositphotos.com/1032561/937/i/600/depositphotos_9377881-stock-photo-female-hand-holding-shopping-bags.jpg",
+      "title": "SUMMER SALE",
+      "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      "bg": "f5fafd"
+    },
+    {
+      "id": 2,
+      "img": "https://static8.depositphotos.com/1032561/937/i/600/depositphotos_9377881-stock-photo-female-hand-holding-shopping-bags.jpg",
+      "title": "AUTUMN COLLECTION",
+      "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      "bg": "fcf1ed"
+    },
+    {
+      "id": 3,
+      "img": "https://static8.depositphotos.com/1032561/937/i/600/depositphotos_9377881-stock-photo-female-hand-holding-shopping-bags.jpg",
+      "title": "TOP BRAND SALE",
+      "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      "bg": "fbf0f4"
+    }
+  ]
+}

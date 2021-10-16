@@ -68,7 +68,7 @@ function Navbar() {
           <Language>EN</Language>
           <SearchContainer>
             <Input />
-            <SearchIcon color="secondary" style={{fontSize:'14px'}}/>
+            <SearchIcon color="secondary" style={{ fontSize: "14px" }} />
           </SearchContainer>
         </Left>
         <Center>

@@ -7,11 +7,12 @@ const Container = styled.div`
   font-size: 16px;
   display: flex;
   justify-content: center;
-  align-items: center; 
-  padding: 5px 0 
+  align-items: center;
+  padding: 5px 0;
 `;
-function Announcement() {
-  return <Container>Big Billion Deal!!!!!! SAVE UPTO 50%</Container>;
-}
+
+const Announcement = () => {
+  return <Container>Big Billion Deal !!!!!! SAVE UPTO 50% </Container>;
+};
 
 export default Announcement;
