@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../ResponseView";
 
@@ -35,7 +36,6 @@ const Input = styled.input`
   min-width: 40%;
   margin: 10px 0;
   padding: 10px;
-  
 `;
 const Link = styled.a`
   font-size: 14px;
@@ -53,6 +53,7 @@ const Button = styled.button`
   margin-bottom: 5px;
 `;
 const Login = () => {
+  let history = useHistory();
   return (
     <Container>
       <Wrapper>
@@ -60,7 +61,7 @@ const Login = () => {
         <Form>
           <Input placeholder="Username"></Input>
           <Input placeholder="Password"></Input>
-          <Button>LOG IN</Button>
+          <Button onClick={() => history.push("/home")}>LOG IN</Button>
           <Link>Forget Password</Link>
           <Link>Create a new account</Link>
         </Form>

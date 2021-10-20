@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -8,14 +9,16 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    <div>
-      {/* <Home /> */}
-      {/* <ProductList /> */}
-      {/* <Product/> */}
-      {/* <Register /> */}
-      {/* <Login /> */}
-      <Cart />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/home" component={Home} />
+        <Route path="/productList" component={ProductList} />
+        <Route path="/cart" component={Cart} />
+        <Route path="/product" component={Product} />
+      </Switch>
+    </Router>
   );
 }
 
