@@ -1,11 +1,30 @@
-FROM node:alpine
+# For Deplpyed in GCP
+FROM node:15.4 as build
 
-WORKDIR '/app'
-
-COPY package.json .
-
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-
 COPY . .
+RUN npm run build
 
-CMD [ "npm", "start"]
+# Stage 1 - Serve Frontend Assets
+FROM nginx:1.19
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+# CMD ["nginx", "-g", "daemon off;"]
+
+# -----> For local react <----- 
+#FROM node:alpine
+
+#WORKDIR '/app'
+
+#COPY package.json .
+
+#RUN npm install
+
+#COPY . .
+
+# CMD [ "npm", "start"]
