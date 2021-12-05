@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
+import { useHistory } from "react-router-dom";
 
 const Info = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const Info = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(0,0,0,0.2);
+  background-color: rgb(0, 0, 0, 0.2);
   opacity: 0;
   z-index: 3;
   display: flex;
@@ -32,8 +32,8 @@ const Container = styled.div`
   background-color: #f5fbfb;
   position: relative;
 
-  &:hover ${Info}{
-     opacity: 1;
+  &:hover ${Info} {
+    opacity: 1;
   }
 `;
 const Circle = styled.div`
@@ -59,23 +59,31 @@ const Icon = styled.div`
   background-color: #fff;
   transition: all 0.5s ease;
 
-  &:hover{
-      background-color: #e9f5f5;
-      transform: scale(1.1);
-      
+  &:hover {
+    background-color: #e9f5f5;
+    transform: scale(1.1);
   }
 `;
 
 const ProductsItem = ({ itm }) => {
+  let history = useHistory();
   return (
     <Container>
       <Circle />
       <Image src={itm.img} />
       <Info>
-        <Icon>
+        <Icon
+          onClick={() => {
+            history.push("/cart");
+          }}
+        >
           <AddShoppingCartIcon />
         </Icon>
-        <Icon>
+        <Icon
+          onClick={() => {
+            history.push("/product");
+          }}
+        >
           <SearchIcon />
         </Icon>
         <Icon>

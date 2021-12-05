@@ -54,6 +54,9 @@ const Button = styled.button`
 `;
 const Login = () => {
   let history = useHistory();
+  const onLogin = () => {
+    history.push("/home");
+  };
   return (
     <Container>
       <Wrapper>
@@ -61,7 +64,7 @@ const Login = () => {
         <Form>
           <Input placeholder="Username"></Input>
           <Input placeholder="Password"></Input>
-          <Button onClick={() => history.push("/home")}>LOG IN</Button>
+          <Button onClick={onLogin}>LOG IN</Button>
           <Link>Forget Password</Link>
           <Link>Create a new account</Link>
         </Form>

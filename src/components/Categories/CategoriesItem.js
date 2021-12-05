@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../../ResponseView";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -39,12 +40,19 @@ const Button = styled.button`
 `;
 
 const CategoriesItem = ({ itm }) => {
+  let history = useHistory();
   return (
     <Container>
       <Image src={itm.img} />
       <Info>
         <Title> {itm.title}</Title>
-        <Button>SHOP NOW </Button>
+        <Button
+          onClick={() => {
+            history.push("/productList");
+          }}
+        >
+          SHOP NOW{" "}
+        </Button>
       </Info>
     </Container>
   );

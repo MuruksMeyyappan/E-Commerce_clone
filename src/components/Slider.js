@@ -4,6 +4,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import sliderData from "../mockData/Data.json";
 import { mobile } from "../ResponseView";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -77,6 +78,7 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
+  let history = useHistory();
   const [slideIndex, setSlideIndex] = useState(0);
   const handelArrowClick = (direction) => {
     if (direction === "left") {
@@ -101,7 +103,13 @@ const Slider = () => {
               <InfoContainer>
                 <Title>{itm.title}</Title>
                 <Desc>{itm.desc}</Desc>
-                <Button>SHOP NOW</Button>
+                <Button
+                  onClick={() => {
+                    history.push("/productList");
+                  }}
+                >
+                  SHOP NOW
+                </Button>
               </InfoContainer>
             </Slide>
           );

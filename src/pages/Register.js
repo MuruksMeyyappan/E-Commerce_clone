@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../ResponseView";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -50,6 +51,7 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  let history = useHistory();
   return (
     <Container>
       <Wrapper>
@@ -65,7 +67,13 @@ const Register = () => {
             By creating an account, I consent to the processing my data in
             accordance with <b>Terms and condition</b>
           </Agreement>
-          <Button>Create</Button>
+          <Button
+            onClick={() => {
+              history.push("/home");
+            }}
+          >
+            Create
+          </Button>
         </Form>
       </Wrapper>
     </Container>
