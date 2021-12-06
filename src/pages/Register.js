@@ -72,7 +72,7 @@ const Register = () => {
               history.push("/home");
             }}
           >
-            Create
+            Create Account 
           </Button>
         </Form>
       </Wrapper>
