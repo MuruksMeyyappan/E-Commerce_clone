@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import CategoriesData from "../../mockData/Categories";
+import CategoriesData from "../../mockData/CategoriesJSON";
 import CategoriesItem from "./CategoriesItem";
 import { mobile } from "../../ResponseView";
 
