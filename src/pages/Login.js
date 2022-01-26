@@ -57,6 +57,9 @@ const Login = () => {
   const onLogin = () => {
     history.push("/home");
   };
+  const onRegister = () => {
+    history.push("/register");
+  }
   return (
     <Container>
       <Wrapper>
@@ -66,7 +69,7 @@ const Login = () => {
           <Input placeholder="Password"></Input>
           <Button onClick={onLogin}>LOG IN</Button>
           <Link>Forget Password</Link>
-          <Link>Create a new account</Link>
+          <Link onClick={onRegister}>Create a new account</Link>
         </Form>
       </Wrapper>
     </Container>

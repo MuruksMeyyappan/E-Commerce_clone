@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { mobile } from "../ResponseView";
 import { useHistory } from "react-router-dom";
+import UseInput from "../helperFunction/UseInput";
+import axios from "axios";
 
 const Container = styled.div`
   width: 100vw;
@@ -48,32 +50,94 @@ const Button = styled.button`
   background-color: teal;
   color: #fff;
   cursor: pointer;
+  margin: 20px 10px 0 0;
 `;
 
 const Register = () => {
-  let history = useHistory();
+  const [name, setName, resetName] = UseInput("");
+  const [lastName, setLastName, resetLastName] = UseInput("");
+  const [email, setEmail, resetEmail] = UseInput("");
+  const [userName, setUserName, resetUserName] = UseInput("");
+  const [password, setPassword, resetPassword] = UseInput("");
+  const [confirmPassword, setConfirmPassword, resetConfirmPassword] =
+    UseInput("");
+  // let history = useHistory();
+  const onRegister = (e) => {
+    e.preventDefault();
+    console.log("#123 name", name);
+    console.log("#123 lastName", lastName);
+    console.log("#123 email", email);
+    console.log("#123 userName", userName);
+    console.log("#123 password", password);
+    console.log("#123 confirmPassword", confirmPassword);
+
+    if (
+      password === confirmPassword &&
+      password !== "" &&
+      confirmPassword !== "" &&
+      email !== "" &&
+      userName !== "" &&
+      email !== "" &&
+      name !== "" &&
+      lastName !== ""
+    ) {
+      console.log("yes");
+      const inputRequest = {
+        name: name,
+        lastName: lastName,
+        email: email,
+        userName: userName,
+        password: password,
+        confirmPassword: confirmPassword,
+      };
+      axios
+        .post("http://localhost:5000/api/v1/register", inputRequest)
+        .then((response) => console.log("#123 response", response))
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
+    } else {
+      console.log("no");
+    }
+  };
+  const onReset = (e) => {
+    e.preventDefault();
+    resetName();
+    resetLastName();
+    resetEmail();
+    resetUserName();
+    resetPassword();
+    resetConfirmPassword();
+  };
   return (
     <Container>
       <Wrapper>
         <Title>Create an account</Title>
         <Form>
-          <Input placeholder="Name"></Input>
-          <Input placeholder="Last Name"></Input>
-          <Input placeholder="Email"></Input>
-          <Input placeholder="Username"></Input>
-          <Input placeholder="Password"></Input>
-          <Input placeholder="Confirm Password"></Input>
+          <Input placeholder="Name" id="name" {...setName}></Input>
+          <Input placeholder="Last Name" id="lastName" {...setLastName}></Input>
+          <Input placeholder="Email" id="email" {...setEmail}></Input>
+          <Input placeholder="Username" id="userName" {...setUserName}></Input>
+          <Input
+            type="password"
+            placeholder="Password"
+            id="password"
+            {...setPassword}
+            required
+          ></Input>
+          <Input
+            type="password"
+            placeholder="Confirm Password"
+            id="confirmPassword"
+            {...setConfirmPassword}
+            required
+          ></Input>
           <Agreement>
             By creating an account, I consent to the processing my data in
             accordance with <b>Terms and condition</b>
           </Agreement>
-          <Button
-            onClick={() => {
-              history.push("/home");
-            }}
-          >
-            Create Account 
-          </Button>
+          <Button onClick={onRegister}>Create Account</Button>
+          <Button onClick={onReset}>Reset</Button>
         </Form>
       </Wrapper>
     </Container>
